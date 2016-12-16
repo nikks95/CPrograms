@@ -34,9 +34,17 @@ public class ProgramWriter {
   {
     String[] arg =new String[3];
     String line;
-    StringBuilder text1 = new StringBuilder();
-    BufferedReader reader;
-    try {
+    StringBuilder text1,text2;
+   BufferedReader reader;
+
+    boolean writerFlag = false;
+
+
+      text1= new StringBuilder();
+      text2 = new StringBuilder();
+
+
+      try {
       al = new ArrayList<>();
       reader = new BufferedReader(new InputStreamReader(context.getAssets().open("abc.txt")));
       while ((line = reader.readLine()) != null) {
@@ -54,11 +62,22 @@ public class ProgramWriter {
 
 
       while ((line = reader.readLine()) != null) {
-        text1.append(line);
-        text1.append('\n');
-      }
-      reader.close();
+        if(line.length()>1 && (line.charAt(0)=='~'|| !writerFlag))
+        {
+            writerFlag=false;
+            text2.append(line);
+            text2.append('\n');
+        }
+
+        else{
+            writerFlag = true;
+            text1.append(line);
+            text1.append('\n');}
+
+            }
+         reader.close();
     }
+
     catch(IOException ex)
     {
       arg[1]=""+ex;
@@ -66,7 +85,7 @@ public class ProgramWriter {
 
 
       arg[1]=text1.toString();
-      arg[2]="OUTPUT";
+      arg[2]=text2.toString();
     return arg;
 
   }

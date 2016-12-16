@@ -3,37 +3,39 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_introduction"
 
             android:title="Introduction" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_operators"
 
             android:title="Operators in C" />
     </group>
 
-        <item android:title="Programs">
+        <item android:title="Programs"
+            android:id="@+id/program">
 
-        <menu>
+        <menu android:id="@+id/program_menu">
 
             <item
-                android:id="@+id/nav_slideshow"
+                android:id="@+id/nav_program1"
 
                 android:title="Hello world" />
             <item
-                android:id="@+id/nav_manage"
+                android:id="@+id/nav_program2"
 
                 android:title="Even Odd" />
 
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_program3"
 
                 android:title="Share" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_program4"
               
                 android:title="Send" />
         </menu>
+
     </item>
 
 </menu>

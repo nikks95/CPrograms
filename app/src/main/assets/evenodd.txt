@@ -12,3 +12,6 @@ void main()
     else
         printf("%d is an odd integer\n", ival);
 }
+~Output
+Enter an integer : 5
+5 is an odd integer

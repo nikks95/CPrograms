@@ -56,8 +56,8 @@ public class ProgramFragment extends Fragment {
                         }
 
                         try{
-                            File gpxfile = new File(mydir, filename);
-                            FileWriter writer = new FileWriter(gpxfile);
+                            File cFile = new File(mydir, filename);
+                            FileWriter writer = new FileWriter(cFile);
                             writer.append(str);
                             writer.flush();
                             writer.close();

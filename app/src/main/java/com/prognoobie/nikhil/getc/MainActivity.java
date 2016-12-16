@@ -22,7 +22,7 @@ import java.io.File;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+  private boolean flag = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "nkhil gola and tushar saxena", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_introduction) {
             // Handle the camera action
 
             Fragment fragment= new Introduction_fragment();
@@ -96,34 +96,48 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fT = ft.beginTransaction();
             fT.replace(R.id.fragment_container,fragment).commit();
 
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_operators) {
+
             Fragment fragment= new Operator_Fragment();
             android.support.v4.app.FragmentManager ft = getSupportFragmentManager();
             android.support.v4.app.FragmentTransaction fT = ft.beginTransaction();
             //fT.add(R.id.fragment_container,fragment).commit();
             fT.replace(R.id.fragment_container,fragment).commit();
-        } else if (id == R.id.nav_slideshow) {
-            ProgramWriter.setProgID(0);
-            Fragment fragment= new ProgramFragment();
-            android.support.v4.app.FragmentManager ft = getSupportFragmentManager();
-            android.support.v4.app.FragmentTransaction fT = ft.beginTransaction();
-            //fT.add(R.id.fragment_container,fragment).commit();
-            fT.replace(R.id.fragment_container,fragment).commit();
-        } else if (id == R.id.nav_manage) {
-            ProgramWriter.setProgID(1);
-            Fragment fragment= new ProgramFragment();
-            android.support.v4.app.FragmentManager ft = getSupportFragmentManager();
-            android.support.v4.app.FragmentTransaction fT = ft.beginTransaction();
-            //fT.add(R.id.fragment_container,fragment).commit();
-            fT.replace(R.id.fragment_container,fragment).commit();
-        } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_program1) {
 
+            this.getProgram(0);
+
+        } else if (id == R.id.nav_program2) {
+
+            this.getProgram(1);
+
+        } else if (id == R.id.nav_program3) {
+
+
+        } else if (id == R.id.nav_program4) {
+
+
+        }
+        else if(id == R.id.program)
+        {
+            if(!flag)
+            {
+
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    private void getProgram(int id)
+    {
+        ProgramWriter.setProgID(id);
+        Fragment fragment= new ProgramFragment();
+        android.support.v4.app.FragmentManager ft = getSupportFragmentManager();
+        android.support.v4.app.FragmentTransaction fT = ft.beginTransaction();
+        //fT.add(R.id.fragment_container,fragment).commit();
+        fT.replace(R.id.fragment_container,fragment).commit();
     }
 }
