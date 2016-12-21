@@ -34,10 +34,11 @@ public class ProgramWriter {
   {
     String[] arg =new String[3];
     String line;
+    String[] value;
     StringBuilder text1,text2;
    BufferedReader reader;
 
-    boolean writerFlag = false;
+    boolean writerFlag = true;
 
 
       text1= new StringBuilder();
@@ -47,15 +48,20 @@ public class ProgramWriter {
       try {
       al = new ArrayList<>();
       reader = new BufferedReader(new InputStreamReader(context.getAssets().open("abc.txt")));
-      while ((line = reader.readLine()) != null) {
+      value = context.getAssets().list("Programs");
+      /*while ((line = reader.readLine()) != null) {
         al.add(line);
 
       }
       reader.close();
+*/
+          for(int i=0;i<value.length;i++)
+          {
+              al.add(value[i]);
+          }
 
 
-
-     this.FileName = al.get(id)+".txt";
+     this.FileName = al.get(id);
      arg[0]=al.get(id);
 
      reader = new BufferedReader(new InputStreamReader(context.getAssets().open(FileName)));

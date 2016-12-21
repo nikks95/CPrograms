@@ -3,6 +3,7 @@
     android:shape="rectangle" >
 
     <!-- view background color -->
+
     <solid
         android:color="@color/background_color" >
     </solid>
